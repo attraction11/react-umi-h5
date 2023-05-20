@@ -1,9 +1,6 @@
 module.exports = {
   // Umi 项目
-  extends: [
-    require.resolve('umi/eslint'),
-    "prettier"
-  ],
+  extends: [require.resolve('umi/eslint'), 'prettier'],
 };
 
 // Umi 内置的 ESLint 规则列表：

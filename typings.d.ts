@@ -1,5 +1,7 @@
 import 'umi/typings';
 
+declare const ENV: keyof { DEV: string; TEST: string; PRO: string };
+
 declare namespace API {
   /**
    * 响应体
@@ -8,8 +10,10 @@ declare namespace API {
    * @description message 消息: 返回的消息
    */
   type ResponstBody<T> = {
+    name(name: any): unknown;
     data: T;
     code: number;
+    success: boolean;
     message: string;
   };
 
@@ -123,4 +127,27 @@ declare namespace API {
 
   /** 验证码响应结果 */
   type CaptchaResponse = ResponstBody<CaptchaData>;
+
+  /**
+   * 商户reseller申请(H5)
+   */
+  type MerchantBaseInfo = {
+    name: string;
+    resellerContract: {
+      fileName: string;
+      fileUrl: string;
+    };
+  };
+
+  /* 获取oss上传所需的参数 */
+  type OssUploadParams = {
+    region: string;
+    accessKey: string;
+    accessSecret: string;
+    securityToken: string;
+    bucket: string;
+    filePath: string;
+    domain: string;
+    ossType: 'aws' | 'ali';
+  };
 }

@@ -1,10 +1,11 @@
+import theme from '@/theme';
+import { ConfigProvider } from 'antd';
 import { Outlet } from 'umi';
-import styles from './index.less';
 
 export default function Layout() {
   return (
-    <div className={styles.navs}>
+    <ConfigProvider theme={theme}>
       <Outlet />
-    </div>
+    </ConfigProvider>
   );
 }

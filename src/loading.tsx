@@ -1,6 +1,5 @@
-import React from 'react';
+import { Spin } from 'antd';
 import './app.less';
-import { SpinLoading } from 'antd-mobile/2x';
 
 /**
  * 如何禁用掉每次刷新路由时出现的 loading... 状态？
@@ -10,7 +9,7 @@ export default () => {
   return (
     <div className="loading-warp">
       <div>
-        <SpinLoading color="primary" />
+        <Spin />
       </div>
       <div className="loading-warp-text">加载中...</div>
     </div>

@@ -1,42 +1,38 @@
+import { message } from 'antd';
 import axios from 'axios';
-import { Toast } from 'antd-mobile/2x';
 import type { AxiosRequestHeaders } from 'axios/index';
+import Global from './global';
 
-const { UMI_APP_BASEURL } = process.env;
-
-const instance = axios.create({ baseURL: UMI_APP_BASEURL });
+const instance = axios.create({ baseURL: `${Global.API_HOST}` });
 
 instance.interceptors.request.use(
-  (config: { headers: any; }) => {
+  (config: { headers: any; data?: any; url?: string }) => {
     config.headers = {
       ...config.headers,
-      Authorization: localStorage.getItem('Authorization') || ''
     } as AxiosRequestHeaders;
 
     return config;
   },
-  (error: any) => Promise.reject(error)
+  (error: any) => Promise.reject(error),
 );
 
 instance.interceptors.response.use(
   //状态码为2xx的时候执行
-  (response: { data: any; }) => {
+  (response: { data: any }) => {
     const { data } = response;
     const { code } = data;
+    console.log('global data: ', data);
 
-    if(code) {
-      Toast.show({
-        icon: 'fail',
-        content: data.message
-      })
+    if (code !== 200) {
+      message.error(data.message);
       return Promise.reject(data);
     }
-
     return data;
   },
   //状态码不为2xx的时候执行
-  (error: { response: any; }) => {
+  (error: { response: any }) => {
     const { response } = error;
+    if (!response) Promise.reject(error);
     const { status } = response;
 
     const codeMessage: any = {
@@ -50,20 +46,17 @@ instance.interceptors.response.use(
       500: '服务器发生错误，请检查服务器。',
       502: '网关错误。',
       503: '服务不可用，服务器暂时过载或维护。',
-      504: '网关超时。'
+      504: '网关超时。',
     };
 
-    Toast.show({
-        icon: 'fail',
-        content: response.data.message || codeMessage[status]
-    })
+    message.error(response.data.message || codeMessage[status]);
 
-    if(status === 401) {
-      console.log('401')
+    if (status === 401) {
+      console.log('401');
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default instance;

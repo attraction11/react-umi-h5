@@ -1,0 +1,43 @@
+.mbDemo {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  button {
+    font-size: 18px;
+  }
+  canvas {
+    border-radius: 10px;
+    border: 2px dashed #ccc;
+  }
+  .wrap2 {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    .actionsWrap {
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Figtree-Medium, Figtree;
+    }
+    .canvas {
+      flex: 1;
+    }
+    .actions {
+      margin-right: 15px;
+      white-space: nowrap;
+      transform: rotate(90deg);
+      button {
+        margin: 0 10px;
+      }
+    }
+  }
+}

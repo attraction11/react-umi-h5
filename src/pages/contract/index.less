@@ -1,0 +1,211 @@
+.container {
+  box-sizing: border-box;
+  padding: 59px 16px 31px;
+  background: url('~@/assets/bg1.png') no-repeat;
+  background-size: contain;
+  min-height: 316px;
+  background-color: #f3f5f7;
+
+  .title {
+    height: 27px;
+    font-size: 24px;
+    font-family: Figtree-Bold, Figtree;
+    font-weight: bold;
+    color: #fff;
+    line-height: 27px;
+    margin-bottom: 7px;
+  }
+
+  .subTitle {
+    height: 17px;
+    font-size: 14px;
+    font-family: Figtree-Medium, Figtree;
+    font-weight: 500;
+    color: #fff;
+    line-height: 16px;
+    margin-bottom: 13px;
+  }
+
+  .reseller {
+    padding: 16px 16px 17px;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 15px;
+
+    .txt1 {
+      height: 19px;
+      font-size: 16px;
+      font-family: Figtree-Bold, Figtree;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 87%);
+      line-height: 19px;
+      margin-bottom: 5px;
+    }
+
+    .txt2 {
+      height: 16px;
+      font-size: 12px;
+      font-family: Figtree-Medium, Figtree;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 87%);
+      display: flex;
+      align-items: center;
+
+      > span {
+        padding-right: 2px;
+      }
+    }
+  }
+
+  .business {
+    padding: 24px 16px 8px;
+    background: #fff;
+    border-radius: 4px;
+
+    .title {
+      height: 22px;
+      font-size: 18px;
+      font-family: Figtree-Bold, Figtree;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 87%);
+      line-height: 21px;
+    }
+
+    .subTitle {
+      height: 19px;
+      font-size: 16px;
+      font-family: Figtree-Bold, Figtree;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 87%);
+      line-height: 19px;
+    }
+  }
+  .sign {
+    display: none;
+  }
+
+  .contract.show,
+  .sign.show {
+    display: block;
+  }
+
+  .contract {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding-top: 22%;
+    background: rgba(0, 0, 0, 50%);
+
+    .inner {
+      border-radius: 20px 20px 0 0;
+      background: #f5f6f8;
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .txt {
+        text-align: center;
+        height: 48px;
+        line-height: 48px;
+        font-size: 17px;
+        font-family: Figtree-Bold, Figtree;
+        font-weight: bold;
+        color: #131b23;
+        margin-bottom: 9px;
+      }
+
+      > .close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        cursor: pointer;
+      }
+
+      .context {
+        border-radius: 8px;
+        margin: 0 16px;
+        background: #fff;
+        height: calc(78% - 100px);
+        overflow-y: scroll;
+        overflow: hidden scroll;
+        -webkit-overflow-scrolling: touch;
+        font-size: 12px;
+        font-family: Figtree-Medium, Figtree;
+        font-weight: 500;
+        color: #28282f;
+        line-height: 18px;
+        margin-bottom: 17px;
+
+        > img {
+          width: 100%;
+        }
+
+        canvas {
+          width: 100%;
+        }
+      }
+
+      .checkbox {
+        margin: 0 16px 24px;
+      }
+
+      .signBtn {
+        margin: 0 16px;
+      }
+    }
+  }
+
+  .result.show {
+    display: block;
+  }
+
+  .result {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 50%);
+
+    .inner {
+      box-sizing: border-box;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      padding: 24px 16px;
+      background: #f5f6f8;
+      position: absolute;
+      bottom: 0;
+      height: 250px;
+      width: 100%;
+
+      > span {
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .txt1 {
+        height: 20px;
+        font-size: 17px;
+        font-family: Figtree-Bold, Figtree;
+        font-weight: bold;
+        color: #131b23;
+        line-height: 20px;
+        margin-bottom: 8px;
+      }
+
+      .txt2 {
+        height: 17px;
+        font-size: 14px;
+        font-family: Figtree-Medium, Figtree;
+        font-weight: 500;
+        color: #435568;
+        line-height: 16px;
+        margin-bottom: 29px;
+      }
+    }
+  }
+}
